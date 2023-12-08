@@ -1,0 +1,127 @@
+.product_card{
+    padding: 16px;
+    background-color: white;
+    width: 260px;
+    display: flex;
+    height: 350px;
+    flex-direction: column;
+    margin: 4px;
+    cursor: pointer;
+    justify-content: space-between;
+}
+
+.product_card h1{
+    margin: 0px;
+    font-size: 26px;
+}
+
+.product_card img{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: -webkit-fill-available;
+    max-height: 250px;
+}
+
+.slide_title{
+    display: flex;
+}
+
+.slide_products{
+    width: 94%;
+    margin: auto;
+    overflow: hidden;
+    margin-top: 12px;
+    margin-bottom: 16px;
+    background-color: white;
+    max-height: 325px;
+}
+
+.slide_container{
+    padding: 16px;
+}
+
+.product{
+    display: flex;
+}
+
+.product_image img{ 
+    width: 150px !important;
+}
+
+.slide_title h2{
+    margin: 0px;
+    width: fit-content;
+    margin-bottom: 6px;
+    margin-right: 6px;
+}
+
+.slide_title{
+    display: flex;
+    width: fit-content;
+    min-width: 360px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product_price{
+    display: flex;
+    align-items: baseline;
+    padding-left: 12px;
+    width: 50%;
+    justify-content: space-around;
+}
+
+.product_description a{
+    font-size: 12px !important;
+    width: 150px;
+    display: flex;
+    text-wrap: wrap;
+}
+
+.product_price p{
+    text-decoration: line-through;
+    font-size: 12px;
+    color: grey;
+}
+
+.product_price span{
+    font-size: 18px;
+    margin-right: 4px;
+    color: black;
+}
+
+.product_price span >sup{
+    font-weight: 100;
+    font-size: 12px;
+    color: rgb(44, 44, 44);
+}
+
+.react-multi-carousel-list >ul>li{
+    width: 250px !important;
+}
+
+.tagline{
+    margin: 0px !important;
+    font-size: 12px;
+}
+
+@media (max-width: 600px) {
+    .product_card{
+        width: 144px;
+        height: 230px;
+        padding: 8px;
+    }
+    .product_card h1{
+        font-size: 18px;
+    }
+    .product_card img{
+        height: 110px;
+        max-height: 120px;
+    }
+    .product_image img{ 
+        width: 110px !important;
+    }
+    .react-multi-carousel-list >ul>li{
+        width: 220px !important;
+    }
+}

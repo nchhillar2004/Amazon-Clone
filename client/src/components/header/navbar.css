@@ -1,0 +1,131 @@
+.navbar{
+    background-color: #131921;
+    height: 9vh;
+    display: flex;
+    padding: 0px 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sub-navbar{
+    height: 6vh;
+    background-color: #232f3e;
+    display: flex;
+    padding: 0px 8px;
+    align-items: center;
+}
+
+.sub-right{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: -webkit-fill-available;
+    width: 100%;
+}
+
+.nav-right{
+    display: flex;
+    min-width: fit-content;
+}
+
+.nav-left{
+    display: flex;
+    height: fit-content;
+    min-width: fit-content;
+}
+
+.nav-sprite-search{
+    background-image: url(../../assets/search.png);
+    background-repeat: no-repeat;
+    flex: 1 1 auto;
+    width: auto;
+    height: auto;
+    background-position: -2px -3px;
+}
+
+.nav-sprite-search >input{
+    text-indent: -1000px;
+    border: none;
+    background: 0 0;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-search >form{
+    display: flex;
+    height: 38px;
+}
+
+.sprite{
+    background-color: #febd69;
+    width: 45px;
+    cursor: pointer;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.all-card{
+    background-color: rgb(212, 212, 212);
+    padding: 8px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: rgb(95, 95, 95);
+    height: -webkit-fill-available;
+}
+
+.all-card >p{
+    margin: 0px;
+}
+
+.nav-fill{
+    width: 100%;
+}
+
+.nav-search{
+    width: 75%;
+    margin: auto;
+}
+
+.nav-fill >input{
+    width: -webkit-fill-available;
+    border: 0px;
+    padding-left: 10px;
+    font-size: 15px;
+    height: -webkit-fill-available;
+}
+
+.nav-fill >input:focus {
+    outline: none;
+}
+
+@media (max-width : 600px) {
+    .nav-search >form{
+        height: 30px;
+    }
+    .navbar{
+        padding: 0px 4px;
+        height: 6vh;
+    }
+    .sub-navbar{
+        padding: 0px 2px;
+        height: 4vh;
+    }
+    .sub-right{
+        display: none;
+    }
+    .hide{
+        display: none;
+    }
+    .nav-fill{
+        width: 60%;
+    }
+    .all-card {
+        padding: 5px;
+    }
+    .nav-sprite-search{
+        background-position: -5px -6px;
+    }
+}

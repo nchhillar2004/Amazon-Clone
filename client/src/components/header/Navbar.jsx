@@ -42,7 +42,7 @@ function Navbar() {
                   <BorderButton name="Register" href="/register"/>
                   <BorderButton name="Orders" href="/orders"/></div>
                   
-                </div><div className="cart"><Cart name="Cart" href="Cart"/></div></div>
+                </div><div className="cart"><Cart name="Cart" href="/cart"/></div></div>
             </div>
             <div className="nav-main">
                 <SubNavbar />

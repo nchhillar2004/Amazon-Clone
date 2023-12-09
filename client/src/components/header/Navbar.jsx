@@ -13,10 +13,11 @@ function Navbar() {
         <header>
             <div className="navbar" id="top">
                 <div className="nav-left">
-                    <ImageBorderButton image={logo} name=".in" />
-                    <IconBorderButton icon={<FmdGoodOutlinedIcon/>} name="Update location" />
+                    <ImageBorderButton image={logo} name=".in" href="/"/>
+                    <div className="hide">
+                    <IconBorderButton icon={<FmdGoodOutlinedIcon/>} name="Update location" /></div>
                 </div>
-                <div className="nav-fill hide">
+                <div className="nav-fill">
                   <div className="nav-search">
                     <form action="">
                       <div className="nav-left all-card">

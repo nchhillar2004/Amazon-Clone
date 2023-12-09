@@ -4,8 +4,8 @@ import './BorderButton.css'
 function ImageBorderButton(props) {
   return (
     <div className="border-button img-btn">
-      <img src={props.image} alt="" width={94}/>
-        <a href={props.href}>{props.name}</a>
+      <a href={props.href}><img src={props.image} alt="" width={94}/></a>
+        <p>{props.name}</p>
     </div>
   )
 }

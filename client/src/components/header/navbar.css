@@ -103,14 +103,15 @@
 
 @media (max-width : 600px) {
     .nav-search >form{
-        height: 30px;
+        height: 29px;
     }
     .navbar{
         padding: 0px 4px;
-        height: 6vh;
+        height: 7vh;
+        justify-content: space-around;
     }
     .sub-navbar{
-        padding: 0px 2px;
+        padding: 0px 4px;
         height: 4vh;
     }
     .sub-right{
@@ -120,12 +121,19 @@
         display: none;
     }
     .nav-fill{
-        width: 60%;
+        width: 50%;
     }
     .all-card {
-        padding: 5px;
+        padding: 4px;
     }
     .nav-sprite-search{
-        background-position: -5px -6px;
+        background-position: -3px -6px;
+    }
+    .sprite{
+        width: 34px;
+    }
+    .nav-fill >input{
+        padding-left: 8px;
+        font-size: 14px;
     }
 }

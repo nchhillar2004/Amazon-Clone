@@ -125,3 +125,19 @@
         width: 220px !important;
     }
 }
+/* 
+@media (max-height: 700px) {
+    .product_card{
+        width: 162px;
+        height: 240px;
+        padding: 10px;
+    }
+}
+
+@media (max-height: 700px) {
+    .product_card{
+        width: 145px;
+        height: 230px;
+        padding: 9px;
+    }
+} */

@@ -28,27 +28,42 @@
 
 @media (max-width : 600px) {
     .carasousel{
-        height: 500px;
+        height: 460px;
     }
     .carasousel::before {
         height: 20%;
-        top: 116px;
+        top: 105px;
     }
     .carasousel img{
-        width: 500px !important;
+        width: 460px !important;
     }
     .carasousel button{
-        margin-top: -380px !important; 
+        margin-top: -342px !important; 
         height: 90px !important;
         width: 40px !important; 
     }
     .space{
-        height: 110px !important;
+        height: 146px !important;
     }
     .products_section{
         top: 5% !important;
     }
 }
+
+/* @media (max-height: 1024px){
+    .space{
+        height: 175px !important;
+    }
+}
+
+@media (max-height: 864px) {
+    .space{
+        height: 154px;
+    }
+    .carasousel button{
+        margin-top: -340px !important;
+    }
+} */
 
 .products_section{
     position: absolute;

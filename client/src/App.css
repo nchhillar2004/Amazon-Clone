@@ -3,6 +3,10 @@
   height: 100%;
 }
 
+.app_routes{
+  background-color: rgb(235,235,235);
+}
+
 .main_routes{
   min-height: 20vh;
 }

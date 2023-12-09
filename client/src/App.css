@@ -6,3 +6,31 @@
 .main_routes{
   min-height: 20vh;
 }
+
+.error_route{
+  padding: 20px;
+  text-align: center;
+}
+
+.error_route >h1{
+  font-size: 52px;
+  color: #232f3e;
+  font-weight: bold;
+}
+
+.error_route p{
+  font-size: 20px;
+  color: grey;
+}
+
+.error_route a{
+  background-color: #232f3e !important;
+  padding: 5px 10px;
+  border-radius: 4px;
+  color: white !important;
+  text-decoration: none !important;
+}
+
+.error_route a:hover{
+  opacity: 0.9;
+}

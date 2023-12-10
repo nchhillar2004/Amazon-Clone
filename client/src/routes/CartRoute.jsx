@@ -2,7 +2,9 @@ import React from 'react'
 
 function CartRoute() {
   return (
-    <div>CartRoute</div>
+    <div className="cart_route">
+      
+    </div>
   )
 }
 

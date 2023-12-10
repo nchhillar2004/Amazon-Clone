@@ -11,6 +11,7 @@ function App() {
           <Route exact path='/*' element={<HomePage/>}></Route>
           <Route path='/login' element={<LoginPage/>}></Route>
           <Route path='/register' element={<RegisterPage/>}></Route>
+          <Route path='*' element={<Error code="404" error="Page not found"/>}></Route>
         </Routes>
     </div>
   )

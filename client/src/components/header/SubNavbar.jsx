@@ -11,18 +11,18 @@ function SubNavbar() {
         <IconBorderButton icon={<MenuOutlinedIcon/>} name="All" />
         </div>
       <div className="sub-right">
-        <BorderButton name="Amazon mini TV" href="/"/>
-        <BorderButton name="Sell" href="/"/>
-        <BorderButton name="Best Sellers" href="/"/>
-        <BorderButton name="Today's Deals" href="/"/>
-        <BorderButton name="Customer Serivice" href="/"/>
-        <BorderButton name="Electronics" href="/"/>
-        <BorderButton name="Mobiles" href="/"/>
-        <BorderButton name="Home/ Kitchen" href="/"/>
-        <BorderButton name="Prime" href="/"/>
-        <BorderButton name="Faishon" href="/"/>
-        <BorderButton name="Amazon Pay" href="/"/>
-        <BorderButton name="Computers" href="/"/>
+        <BorderButton name="Amazon mini TV" href="/mini-tv"/>
+        <BorderButton name="Sell" href="/sell"/>
+        <BorderButton name="Best Sellers" href="/best-sellers"/>
+        <BorderButton name="Today's Deals" href="/deals"/>
+        <BorderButton name="Customer Service" href="/customer-service"/>
+        <BorderButton name="Electronics" href="/electronics"/>
+        <BorderButton name="Mobiles" href="/mobiles"/>
+        <BorderButton name="Home/ Kitchen" href="/home-kitchen"/>
+        <BorderButton name="Prime" href="/prime"/>
+        <BorderButton name="Faishon" href="/faishon"/>
+        <BorderButton name="Amazon Pay" href="/amazon-pay"/>
+        <BorderButton name="Computers" href="/computers"/>
       </div>
     
     </div>

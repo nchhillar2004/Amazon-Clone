@@ -2,10 +2,10 @@ import React from "react";
 import { Divider } from "@mui/material";
 import Carousel from "react-multi-carousel";
 import "./ProductViews.css";
-import { products } from "../../data/ProductsData";
+// import { products } from "../../data/ProductsData";
 import "react-multi-carousel/lib/styles.css";
 
-function SlideProducts(props) {
+function SlideProducts({title, href, products}) {
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
@@ -25,8 +25,8 @@ function SlideProducts(props) {
         <div className="slide_products">
             <div className="slide_container">
                 <div className="slide_title">
-                    <h2>{props.title}</h2>
-                    <a href={props.href}>See all products</a>
+                    <h2>{title}</h2>
+                    <a href={href}>See all products</a>
                 </div>
                 <Divider />
                 <Carousel
@@ -36,7 +36,7 @@ function SlideProducts(props) {
                     swipeable={true}
                     showDots={false}
                     centerMode={true}
-                    autoPlay={false}
+                    autoPlay={true}
                     autoPlaySpeed={4000}
                     keyBoardControl={true}
                     removeArrowOnDeviceType={["tablet", "mobile"]}

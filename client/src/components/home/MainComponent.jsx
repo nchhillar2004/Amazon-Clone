@@ -50,8 +50,8 @@ function MainComponent() {
                 </div>
             </div>
             <div className="space"></div>
-            <SlideProducts title="Deals of the day" href="/" />
-            <SlideProducts title="Amazon Prime Special" href="/" />
+            <SlideProducts title="Deals of the day" href="/" products={products} />
+            <SlideProducts title="Amazon Prime Special" href="/" products={products} />
             <div className="products_list">
                 <MainProduct
                     offer="Upto 40% dicount on mobile phones"
@@ -78,7 +78,7 @@ function MainComponent() {
                     }
                 />
             </div>
-            <SlideProducts title="From best sellers" href="/" />
+            <SlideProducts title="From best sellers" href="/" products={products} />
         </div>
     );
 }

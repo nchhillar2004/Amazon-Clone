@@ -10,7 +10,7 @@ function SubNavbar() {
       <div className="sub-left">
         <IconBorderButton icon={<MenuOutlinedIcon/>} name="All" />
         </div>
-      <div className="sub-right">
+      <div className="sub-right hide">
         <BorderButton name="Amazon mini TV" href="/mini-tv"/>
         <BorderButton name="Sell" href="/sell"/>
         <BorderButton name="Best Sellers" href="/best-sellers"/>

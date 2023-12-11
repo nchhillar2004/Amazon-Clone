@@ -47,9 +47,9 @@
         font-size: 12px;
     }
     .cart-items >span{
-        top: 6px !important;
+        top: 65px !important;
         font-size: 15px !important;
-        margin-left: 5px !important;
+        margin-left: 3px !important;
     }
     .cart-items img{
         width: 36px;

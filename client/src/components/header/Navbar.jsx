@@ -14,8 +14,7 @@ function Navbar() {
             <div className="navbar" id="top">
                 <div className="nav-left">
                     <ImageBorderButton image={logo} name=".in" href="/"/>
-                    <div className="hide">
-                    <IconBorderButton icon={<FmdGoodOutlinedIcon/>} name="Update location" /></div>
+                    <IconBorderButton icon={<FmdGoodOutlinedIcon/>} name="Update location" />
                 </div>
                 <div className="nav-fill">
                   <div className="nav-search">
@@ -39,7 +38,7 @@ function Navbar() {
                 <div className="nav-right">
                 <div className="nav-right accounts">
                   <BorderButton name="Login" href="/login"/>
-                  <div className="nav-right hide">
+                  <div className="nav-right">
                   <BorderButton name="Register" href="/register"/>
                   <BorderButton name="Orders" href="/orders"/></div>
                   

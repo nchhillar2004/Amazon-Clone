@@ -1,15 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import "./auth.css";
 import { Divider } from "@mui/material";
 import logo from "../../assets/logo.png";
 
 function RegisterPage() {
+    const [userData, setUserData] = useState({
+        fname: "",
+        mobile: "",
+        email: "",
+        password: "",
+    });
+
+    const addData = (e) => {
+        const { name, value } = e.target;
+
+        setUserData(() => {
+            return {
+                ...userData,
+                [name]: value,
+            };
+        });
+    };
+
     return (
         <div className="auth register_page">
             <div className="auth_container register">
                 <div className="auth_logo">
                     <a href="/">
-                    <img src={logo} alt="Amazon Logo" /></a>
+                        <img src={logo} alt="Amazon Logo" />
+                    </a>
                 </div>
                 <div className="auth_portal">
                     <div className="auth_card register">
@@ -21,6 +40,9 @@ function RegisterPage() {
                                 placeholder="First and Last name"
                                 id="fname"
                                 name="fname"
+                                onChange={addData}
+                                value={userData.fname}
+                                required
                             />
                             <label htmlFor="mobile">Mobile number</label>
                             <div className="flex">
@@ -32,24 +54,48 @@ function RegisterPage() {
                                     placeholder="Mobile number"
                                     id="mobile"
                                     name="mobile"
+                                    onChange={addData}
+                                    value={userData.mobile}
                                 />
                             </div>
                             <label htmlFor="email">Email</label>
-                            <input type="email" name="email" id="email" placeholder="Email address" required/>
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                onChange={addData}
+                                value={userData.email}
+                                placeholder="Email address"
+                                required
+                            />
                             <label htmlFor="password">Create password</label>
                             <input
                                 type="password"
                                 name="password"
                                 id="password"
+                                onChange={addData}
+                                value={userData.password}
                                 placeholder="Atleast 6 characters"
                                 required
                             />
-                            <input type="submit" value="Register" className="submit_button"/>
+                            <input
+                                type="submit"
+                                value="Register"
+                                className="submit_button"
+                            />
                         </form>
                         <Divider className="divider" />
                         <div className="auth_card_bottom">
-                            <p>Already have an account? <a href="/login">Sign in &#10148;</a></p>
-                            <p>By creating an account or logging in, you agree to Amazon's <a href="/conditions">Conditions of Use</a> and <a href="/privacy">Privacy Policy</a>.</p>
+                            <p>
+                                Already have an account?{" "}
+                                <a href="/login">Sign in &#10148;</a>
+                            </p>
+                            <p>
+                                By creating an account or logging in, you agree
+                                to Amazon's{" "}
+                                <a href="/conditions">Conditions of Use</a> and{" "}
+                                <a href="/privacy">Privacy Policy</a>.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -57,12 +103,12 @@ function RegisterPage() {
             <Divider />
             <div className="auth_footer register">
                 <div className="afooter_container">
-                <div className="flex">
-                    <a href="/conditions">Conditions of Use</a>
-                    <a href="/privacy">Privacy Notice</a>
-                    <a href="/help">Help</a>
-                </div>
-                <p>© 1996-2023, Amazon.com, Inc. or its affiliates</p>
+                    <div className="flex">
+                        <a href="/conditions">Conditions of Use</a>
+                        <a href="/privacy">Privacy Notice</a>
+                        <a href="/help">Help</a>
+                    </div>
+                    <p>© 1996-2023, Amazon.com, Inc. or its affiliates</p>
                 </div>
             </div>
         </div>

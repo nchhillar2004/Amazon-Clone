@@ -1,4 +1,4 @@
-export const products = [
+const products = [
     {
         id: 'product1',
         url: "https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/71HeehcVOYS._SX679_.jpg",
@@ -102,3 +102,5 @@ export const products = [
         tagline: "Deal of the day"
     },
 ]
+
+module.exports = products;

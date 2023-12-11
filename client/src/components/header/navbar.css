@@ -107,27 +107,29 @@
     }
     .navbar{
         padding: 0px 4px;
-        height: 7vh;
-        justify-content: space-around;
+        flex-direction: column;
+        height: fit-content;
+    }
+    .navbar >.nav-fill{
+        margin: 4px 0px;
+    }
+    .nav-left, .nav-right{
+        width: 100%;
+        justify-content: space-between;
+    }
+    .nav-search{
+        width: 90%;
     }
     .sub-navbar{
         padding: 0px 4px;
-        height: 4vh;
-    }
-    .sub-right{
-        display: none;
+        height: 5vh;
     }
     .hide{
         display: none;
     }
-    .nav-fill{
-        width: 50%;
-    }
     .all-card {
         padding: 4px;
-    }
-    .nav-sprite-search{
-        background-position: -3px -6px;
+        width: fit-content !important;
     }
     .sprite{
         width: 34px;
@@ -135,5 +137,8 @@
     .nav-fill >input{
         padding-left: 8px;
         font-size: 14px;
+    }
+    .nav-sprite-search{
+        background-position: -5px -7px;
     }
 }

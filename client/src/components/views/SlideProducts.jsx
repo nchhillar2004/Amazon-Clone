@@ -20,6 +20,7 @@ function SlideProducts(props) {
             items: 2,
         },
     };
+    const id = 1;
     return (
         <div className="slide_products">
             <div className="slide_container">
@@ -35,7 +36,7 @@ function SlideProducts(props) {
                     swipeable={true}
                     showDots={false}
                     centerMode={true}
-                    autoPlay={true}
+                    autoPlay={false}
                     autoPlaySpeed={4000}
                     keyBoardControl={true}
                     removeArrowOnDeviceType={["tablet", "mobile"]}
@@ -51,7 +52,7 @@ function SlideProducts(props) {
                                         <img src={e.url} alt={e.description} />
                                     </div>
                                     <div className="product_description">
-                                        <a>{e.title.longTitle}</a>
+                                        <a href={`/getproductsone/:id`}>{e.title.longTitle}</a>
                                         <div className="product_price">
                                             <span>
                                                 <sup>&#8377;</sup>

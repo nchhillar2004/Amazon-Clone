@@ -1,0 +1,115 @@
+.get_product_one{
+    background-color: white;
+    width: 100%;
+    height: fit-content;
+}
+
+.get_products_section{
+    display: flex;
+}
+
+.image_container{
+    width: 100%;
+    text-align: center;
+}
+
+.left_product, .right_product{
+    width: 50%;
+    padding: 12px;
+}
+
+.right_card{
+    width: 90%;
+    margin: auto;
+}
+
+.right_card h1{
+    margin: 4px 0px;
+}
+
+.discount{
+    font-size: 24px !important;
+    color: #CC0C39!important;
+    font-weight: 300 !important;
+}
+
+.get_flex{
+    display: flex;
+}
+
+.get_flex >sup{
+    margin-left: 6px;
+}
+
+.get_flex >h2{
+    font-size: 28px !important;
+    font-weight: 500 !important;
+    margin: 0px;
+}
+
+.get_flex >p{
+    text-decoration: line-through !important;
+    margin: 0px;
+}
+
+.mrp{
+    margin-left: 4px !important;
+}
+
+.grey{
+    color: grey !important;
+}
+
+.offers{
+    margin: 8px 0px;
+}
+
+.in_stock{
+    color: green;
+    font-size: 20px;
+    margin: 0px !important;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 8px 0px;
+    width: 40%;
+    height: 70px;
+    justify-content: space-between;
+}
+
+.buttons a{
+    margin: 0px !important;
+    color: black !important;
+    text-decoration: none !important;
+    border-radius: 12px;
+    padding: 6px 4px;
+    width: 100%;
+}
+
+.add_to_cart{
+    background-color: #FFD814 !important;
+}
+
+.buy_now{
+    background-color: #FFA41C !important;
+}
+
+@media (max-width: 600px) {
+    .get_product_one{
+        width: 96%;
+        margin: auto;
+    }
+    .get_products_section{
+        flex-direction: column;
+    }
+    .left_product, .right_product{
+        width: 100%;
+        padding: 0px;
+    }
+    .buttons{
+        width: 54%;
+    }
+}

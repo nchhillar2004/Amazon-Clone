@@ -20,7 +20,8 @@ function SlideProducts({title, href, products}) {
             items: 2,
         },
     };
-    const id = 1;
+
+
     return (
         <div className="slide_products">
             <div className="slide_container">
@@ -52,7 +53,7 @@ function SlideProducts({title, href, products}) {
                                         <img src={e.url} alt={e.description} />
                                     </div>
                                     <div className="product_description">
-                                        <a href={`/getproductsone/:id`}>{e.title.longTitle}</a>
+                                        <a href={`/getproductsone/${e.id}`}>{e.title.longTitle}</a>
                                         <div className="product_price">
                                             <span>
                                                 <sup>&#8377;</sup>

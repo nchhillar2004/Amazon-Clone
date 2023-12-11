@@ -1,6 +1,8 @@
 const express = require("express");
 const router = new express.Router();
 const Products = require("../models/productSchema");
+const Users = require("../models/userSchema");
+
 
 // get products data api
 router.get("/getproducts", async(req, res)=>{
@@ -26,5 +28,11 @@ router.get("/getproductsone/:id", async(req, res)=>{
     }
 });
 
+
+// register user
+router.post("/register", async(req, res)=>{
+    console.log(req.body);
+});
+ 
 
 module.exports = router;

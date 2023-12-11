@@ -12,6 +12,5 @@ export const getProducts =()=>async(dispatch)=>{
         dispatch({type:"SUCESS_GET_PRODUCTS", payload:res})
     } catch (error) {
         dispatch({type:"FAIL_GET_PRODUCTS", payload:error.response})
-        
     }
 }

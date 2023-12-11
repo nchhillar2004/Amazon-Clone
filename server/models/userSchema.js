@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
+const bcrypt = require("bcryptjs");
+
 
 const userSchema = new mongoose.Schema({
     fname:{
@@ -7,14 +9,9 @@ const userSchema = new mongoose.Schema({
         required:true,
         trim:true,
     },
-    code:{
-        type:String,
-        trim:true,
-    },
     mobile:{
         type:String,
-        trim:true,
-        unique:true,
+        required:true,
         maxlength:10,
     },
     email:{
@@ -30,7 +27,6 @@ const userSchema = new mongoose.Schema({
     password:{
         type:String,
         required:true,
-        trim:true,
         minlength:6,
     },
     tokens : [
@@ -44,6 +40,16 @@ const userSchema = new mongoose.Schema({
     carts : Array
 });
 
-const Users = new mongoose.model("users", userSchema);
+
+userSchema.pre("save", async function(next){
+    if(this.isModified("password")){
+        this.password = await bcrypt.hash(this.password, 12);
+    }
+    next();
+});
+
+
+
+const Users = new mongoose.model("USER", userSchema);
 
 module.exports = Users;

@@ -31,7 +31,35 @@ router.get("/getproductsone/:id", async(req, res)=>{
 
 // register user
 router.post("/register", async(req, res)=>{
-    console.log(req.body);
+    // console.log(req.body);
+
+    const {fname, mobile, email, password} = req.body;
+
+    if(!fname || !mobile || !email || !password){
+        res.status(422).json({error:"fill the all data"});
+        console.log("no data available");
+    };
+
+
+    try {
+        const preUser = await Users.findOne({email:email});
+
+        if(preUser){
+            res.status(422).json({error:"user already exists"});
+        }else{
+            const finalUser = new Users({
+                fname, mobile, email, password
+            });
+            
+            
+            const storeData = await finalUser.save();
+            console.log(storeData);
+            res.staus(201).json(storeData);
+        }
+
+    } catch (error) {
+        
+    }
 });
  
 

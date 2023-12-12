@@ -59,7 +59,9 @@ function RegisterPage() {
                 email: "",
                 password: "",
             });
-            navigate("/");
+            setTimeout(()=>{
+                navigate("/");
+            }, 1000);
         }
     };
 

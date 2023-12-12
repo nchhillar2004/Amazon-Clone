@@ -91,7 +91,10 @@ router.post("/login", async(req, res)=>{
             }else{
                 res.status(201).json({message:"password match"});
             }
+        }else{
+            res.status(404).json({error:"Email not registered"});
         }
+        
     } catch (error) {
         console.log(error);
         res.status(500).json({error:"Login server error"});

@@ -42,6 +42,8 @@ function LoginPage() {
             toast.error("Fill all fields");
         }else if(res.status === 500){
             toast.error("Server error");
+        }else if(res.status === 404){
+            toast.error("User not found");
         }else if(res.status === 401){
             toast.error("Invalid details");
         } else {
@@ -51,7 +53,9 @@ function LoginPage() {
                 email: "",
                 password: "",
             });
-            navigate("/");
+            setTimeout(()=>{
+                navigate("/");
+            }, 1000);
         }
     }
     

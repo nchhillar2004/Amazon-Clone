@@ -10,7 +10,7 @@
 ### Products List
 ![Screenshot 2023-12-12 232422](https://github.com/nchhillar2004/Amazon-Clone/assets/115921678/9c559989-6114-4bf4-866e-b4b5d0564c2e)
 ### Specific Product View
-![Screenshot 2023-12-10 230547](https://github.com/nchhillar2004/Amazon-Clone/assets/115921678/260d66d2-b5e6-45b8-b3ee-e44602325b53)
+![Screenshot 2023-12-12 233846](https://github.com/nchhillar2004/Amazon-Clone/assets/115921678/fc299e8d-4fa2-4f04-975b-3030b3c163d3)
 ### Cart
 ![Screenshot 2023-12-10 230524](https://github.com/nchhillar2004/Amazon-Clone/assets/115921678/54af9a69-5f9f-4f4a-a74f-ce6e6f5c5698)
 ### Footer
@@ -26,4 +26,8 @@
 ![Screenshot 2023-12-12 233118](https://github.com/nchhillar2004/Amazon-Clone/assets/115921678/4d4669e1-c954-42a6-8304-e39c9a83675c)
 > User Schema includes user Authentication via JWT tokens , also password hashing is implemented
 
-- Project by Nishant Chhillar
+## Mobile Responsive
+![localhost_5173_(Samsung Galaxy S8+)](https://github.com/nchhillar2004/Amazon-Clone/assets/115921678/c18cd193-4ab8-40d9-bf2d-adf0e4058983)
+![localhost_5173_getproductsone_product2(Samsung Galaxy S8+)](https://github.com/nchhillar2004/Amazon-Clone/assets/115921678/9f2fa8cb-4792-4746-a441-75c63ccaa965)
+
+## -Project by Nishant Chhillar

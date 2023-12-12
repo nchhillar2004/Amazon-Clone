@@ -20,7 +20,7 @@ function LoginPage() {
                 [name]:value
             }
         });
-        console.log(logData)
+        // console.log(logData)
     }
 
     const checkLogin = async (e) =>{

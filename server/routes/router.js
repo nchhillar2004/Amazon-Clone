@@ -3,6 +3,7 @@ const router = new express.Router();
 const Products = require("../models/productSchema");
 const Users = require("../models/userSchema");
 const bcrypt = require("bcryptjs");
+const authenticate = require("../middleware/authenticate");
 
 // get products data api
 router.get("/getproducts", async (req, res) => {
@@ -70,42 +71,73 @@ router.post("/register", async (req, res) => {
     }
 });
 
-
-
 // Login user api
-router.post("/login", async(req, res)=>{
-    const {email, password} = req.body;
+router.post("/login", async (req, res) => {
+    const { email, password } = req.body;
 
-    if(!email || !password){
-        res.status(400).json({error:"fill all fields"});
-    };
+    if (!email || !password) {
+        res.status(400).json({ error: "fill all fields" });
+    }
 
     try {
-        const userLogin = await Users.findOne({email:email})
+        const userLogin = await Users.findOne({ email: email });
+        if (userLogin) {
+            const isMatchPassword = await bcrypt.compare(
+                password,
+                userLogin.password
+            );
 
-        if(userLogin){
-            const isMatchPassword = await bcrypt.compare(password, userLogin.password);
-
-            // generate token 
-            const token = await userLogin.generateAuthToken();
-            console.log(token);
-            
-            if(!isMatchPassword){
-                res.status(401).json({error:"Invalid details"});
-            }else{
-                res.status(201).json({message:"password match"});
+            if (!isMatchPassword) {
+                res.status(401).json({ error: "Invalid details" });
+            } else {
+                // generate token
+                const token = await userLogin.generateAuthToken();
+                console.log(token);
+                
+                // generate cookie
+                try {
+                    res.cookie("Amazonweb", token, {
+                        expires: new Date(Date.now() + 900000),
+                        httpOnly: true,
+                    });
+                    console.log("cookie generated");
+                } catch (error) {
+                    console.log("error in generating cookie" + error);
+                }
+                res.status(201).json({ message: "password match" });
             }
-        }else{
-            res.status(404).json({error:"Email not registered"});
+        } else {
+            res.status(404).json({ error: "Email not registered" });
         }
-
     } catch (error) {
         console.log(error);
-        res.status(500).json({error:"Login server error"});
+        res.status(500).json({ error: "Login server error" });
     }
-})
+});
 
+// add data in cart
+router.post("/addcart/:id", authenticate, async (req, res) => {
+    try {
+        const { id } = req.params;
+        const cart = await Products.findOne({ id: id });
+        console.log(cart + "cart value");
 
+        const UserContact = await Users.findOne({ _id: req.userID });
+        console.log(UserContact);
 
+        if (UserContact) {
+            const cartData = await UserContact.addToCart(cart);
+            await UserContact.save();
+            console.log(cartData);
+            res.status(201).json(UserContact);
+        } else {
+            res.status(401).json({ error: "Invalid user" });
+            console.log(1);
+        }
+    } catch (error) {
+        res.status(401).json({ error: "Invalid user" });
+        console.log(2);
+    }
+});
 
 module.exports = router;

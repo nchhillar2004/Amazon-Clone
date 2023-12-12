@@ -30,6 +30,30 @@ function GetProductOne() {
         getIndividualData();
     }, [id]);
 
+    const addtocart = async (id) => {
+        const check = await fetch(`http://localhost:8080/addcart/${id}`, {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                IndividualData,
+            }),
+            // credentials:"include"
+        });
+
+        const data1 = await check.json();
+        console.log(data1 + "frontend data");
+
+        if (check.status !== 201) {
+            console.log("user invalid");
+            alert("user invalid");
+        } else {
+            alert("data added in your cart");
+        }
+    };
+
     return (
         <div className="get_product_one">
             {IndividualData && Object.keys(IndividualData).length && (
@@ -70,7 +94,12 @@ function GetProductOne() {
                             </div>
                             <p className="in_stock">In stock</p>
                             <div className="buttons">
-                                <a className="add_to_cart">Add to cart</a>
+                                <a
+                                    className="add_to_cart"
+                                    onClick={() => addtocart(IndividualData.id)}
+                                >
+                                    Add to cart
+                                </a>
                                 <a className="buy_now">Buy now</a>
                             </div>
                             <b>Special offer: {IndividualData.discount}</b>

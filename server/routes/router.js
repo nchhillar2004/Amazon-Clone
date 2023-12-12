@@ -86,6 +86,10 @@ router.post("/login", async(req, res)=>{
         if(userLogin){
             const isMatchPassword = await bcrypt.compare(password, userLogin.password);
 
+            // generate token 
+            const token = await userLogin.generateAuthToken();
+            console.log(token);
+            
             if(!isMatchPassword){
                 res.status(401).json({error:"Invalid details"});
             }else{
@@ -94,7 +98,7 @@ router.post("/login", async(req, res)=>{
         }else{
             res.status(404).json({error:"Email not registered"});
         }
-        
+
     } catch (error) {
         console.log(error);
         res.status(500).json({error:"Login server error"});

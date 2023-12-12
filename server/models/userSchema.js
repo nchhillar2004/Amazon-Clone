@@ -1,3 +1,4 @@
+// Project by NISHANT CHHILLAR
 const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
@@ -34,11 +35,11 @@ const userSchema = new mongoose.Schema({
         {
             token: {
                 type: String,
-                required: true,
-            },
-        },
+                required: true
+            }
+        }
     ],
-    carts: Array,
+    carts: Array
 });
 
 userSchema.pre("save", async function (next) {

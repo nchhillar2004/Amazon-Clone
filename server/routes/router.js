@@ -1,3 +1,4 @@
+// Project by NISHANT CHHILLAR
 const express = require("express");
 const router = new express.Router();
 const Products = require("../models/productSchema");
@@ -92,12 +93,12 @@ router.post("/login", async (req, res) => {
             } else {
                 // generate token
                 const token = await userLogin.generateAuthToken();
-                console.log(token);
+                console.log("generated token "+ token);
                 
                 // generate cookie
                 try {
-                    res.cookie("Amazonweb", token, {
-                        expires: new Date(Date.now() + 900000),
+                    res.cookie("amazon", token, {
+                        expires: new Date(Date.now() + 2589000),
                         httpOnly: true,
                     });
                     console.log("cookie generated");
@@ -105,12 +106,13 @@ router.post("/login", async (req, res) => {
                     console.log("error in generating cookie" + error);
                 }
                 res.status(201).json({ message: "password match" });
+                console.log("user logged in");
             }
         } else {
             res.status(404).json({ error: "Email not registered" });
         }
     } catch (error) {
-        console.log(error);
+        console.log("login error" + error);
         res.status(500).json({ error: "Login server error" });
     }
 });
@@ -120,24 +122,25 @@ router.post("/addcart/:id", authenticate, async (req, res) => {
     try {
         const { id } = req.params;
         const cart = await Products.findOne({ id: id });
-        console.log(cart + "cart value");
+        console.log(cart + "--cart value");
 
         const UserContact = await Users.findOne({ _id: req.userID });
-        console.log(UserContact);
+        console.log("user contact = " + UserContact);
 
         if (UserContact) {
             const cartData = await UserContact.addToCart(cart);
             await UserContact.save();
-            console.log(cartData);
+            console.log("cart data = " + cartData);
             res.status(201).json(UserContact);
         } else {
             res.status(401).json({ error: "Invalid user" });
-            console.log(1);
+            console.log("invalid user");
         }
     } catch (error) {
         res.status(401).json({ error: "Invalid user" });
-        console.log(2);
+        console.log("invalid user --");
     }
 });
 
 module.exports = router;
+// Project by NISHANT CHHILLAR

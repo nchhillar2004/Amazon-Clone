@@ -1,3 +1,4 @@
+// Project by NISHANT CHHILLAR
 import React, { useEffect, useState } from "react";
 import "./GetProductOne.css";
 import { Divider } from "@mui/material";
@@ -38,7 +39,7 @@ function GetProductOne() {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                IndividualData,
+                IndividualData
             }),
             // credentials:"include"
         });

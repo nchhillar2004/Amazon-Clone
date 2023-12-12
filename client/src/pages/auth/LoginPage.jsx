@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import "./auth.css";
 import { Divider } from "@mui/material";
 import logo from "../../assets/logo.png";
+import toast, { Toaster } from 'react-hot-toast';
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
+    const navigate = useNavigate();
     const [logData, setData] = useState({
         email: "",
         password: "",
@@ -19,9 +22,42 @@ function LoginPage() {
         });
         console.log(logData)
     }
+
+    const checkLogin = async (e) =>{
+        e.preventDefault();
+        const { email, password } = logData;
+        const res = await fetch("http://localhost:8080/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                email,
+                password,
+            }),
+        });
+        const data = await res.json();
+
+        if (res.status === 400 || !data) {
+            toast.error("Fill all fields");
+        }else if(res.status === 500){
+            toast.error("Server error");
+        }else if(res.status === 401){
+            toast.error("Invalid details");
+        } else {
+            toast.success("Logged in Successfully");
+            setData({
+                ...logData,
+                email: "",
+                password: "",
+            });
+            navigate("/");
+        }
+    }
     
     return (
         <div className="auth login_page">
+            <Toaster position="top-center" />
             <div className="auth_container login">
                 <div className="auth_logo">
                     <a href="/">
@@ -31,7 +67,7 @@ function LoginPage() {
                 <div className="auth_portal">
                     <div className="auth_card login">
                         <h1>Sign in</h1>
-                        <form action="">
+                        <form method="POST">
                             <label htmlFor="email">Email</label>
                             <input
                                 type="email"
@@ -56,6 +92,7 @@ function LoginPage() {
                                 type="submit"
                                 value="Continue"
                                 className="submit_button"
+                                onClick={checkLogin}
                             />
                         </form>
                         <Divider className="divider" />

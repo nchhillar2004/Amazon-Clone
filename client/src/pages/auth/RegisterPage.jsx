@@ -2,14 +2,18 @@ import React, { useState } from "react";
 import "./auth.css";
 import { Divider } from "@mui/material";
 import logo from "../../assets/logo.png";
+import toast, { Toaster } from 'react-hot-toast';
+import { useNavigate } from "react-router-dom";
 
 function RegisterPage() {
+    const navigate = useNavigate();
     const [userData, setUserData] = useState({
         fname: "",
         mobile: "",
         email: "",
         password: "",
     });
+    // console.log(userData);
 
     const addData = (e) => {
         const { name, value } = e.target;
@@ -22,8 +26,46 @@ function RegisterPage() {
         });
     };
 
+    const sendData = async (e) => {
+        e.preventDefault();
+        const { fname, mobile, email, password } = userData;
+        const res = await fetch("http://localhost:8080/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                fname,
+                mobile,
+                email,
+                password,
+            }),
+        });
+        const data = await res.json();
+        // console.log(data);
+
+        if (res.status === 422 || !data) {
+            toast.error("Fill all fields");
+        }else if(res.status === 500){
+            toast.error("Enter correct information");
+        }else if(res.status === 409){
+            toast.error("User already exists");
+        } else {
+            toast.success("Registered Successfully");
+            setUserData({
+                ...userData,
+                fname: "",
+                mobile: "",
+                email: "",
+                password: "",
+            });
+            navigate("/");
+        }
+    };
+
     return (
         <div className="auth register_page">
+            <Toaster position="top-center" />
             <div className="auth_container register">
                 <div className="auth_logo">
                     <a href="/">
@@ -33,7 +75,7 @@ function RegisterPage() {
                 <div className="auth_portal">
                     <div className="auth_card register">
                         <h1>Create Account</h1>
-                        <form action="">
+                        <form method="POST">
                             <label htmlFor="fname">Full name</label>
                             <input
                                 type="text"
@@ -56,6 +98,7 @@ function RegisterPage() {
                                     name="mobile"
                                     onChange={addData}
                                     value={userData.mobile}
+                                    required
                                 />
                             </div>
                             <label htmlFor="email">Email</label>
@@ -82,6 +125,7 @@ function RegisterPage() {
                                 type="submit"
                                 value="Register"
                                 className="submit_button"
+                                onClick={sendData}
                             />
                         </form>
                         <Divider className="divider" />

@@ -20,8 +20,6 @@ const authenticate = async(req, res, next)=>{
         } catch (error) {
             console.log("error inside authenticate try" + error);   
         }
-        
-
         next();
     } catch (error) {
         res.status(401).send("Unauthorised user: no token provided");
